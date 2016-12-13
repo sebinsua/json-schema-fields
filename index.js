@@ -8,7 +8,7 @@ const JSON_SCHEMA_DRAFT_04 = 'http://json-schema.org/draft-04/schema'
 
 class UnsupportedSchemaError extends ExtendableError {
 
-  constructor(message) {
+  constructor (message) {
     super(message)
     this.type = 'schema'
   }
@@ -17,7 +17,7 @@ class UnsupportedSchemaError extends ExtendableError {
 
 class UnsupportedSchemaTypeError extends ExtendableError {
 
-  constructor(message) {
+  constructor (message) {
     super(message)
     this.type = 'schema'
   }
@@ -33,7 +33,7 @@ export function createFormatter (messages = {}, formatMessage) {
     if (!messages[name]) {
       return name
     } else {
-      return formatMessage ? formatMessage(messages[name]): messages[name]
+      return formatMessage ? formatMessage(messages[name]) : messages[name]
     }
   }
 }
@@ -48,7 +48,7 @@ const DEFAULT_UI_CONFIGURATION = {
   properties: {},
   types: {
     [TYPE_NUMBER]: {
-      transformPropsForRender({ fieldName, fieldProps }, { render }, { fieldClassName, formatMessage }) {
+      transformPropsForRender ({ fieldName, fieldProps }, { render }, { fieldClassName, formatMessage }) {
         return ({
           className: fieldClassName,
           label: formatMessage(fieldName),
@@ -58,7 +58,7 @@ const DEFAULT_UI_CONFIGURATION = {
       }
     },
     [TYPE_ENUM]: {
-      transformPropsForRender({ fieldName, fieldProps, enumOptions }, { render }, { fieldClassName, formatMessage }) {
+      transformPropsForRender ({ fieldName, fieldProps, enumOptions }, { render }, { fieldClassName, formatMessage }) {
         return {
           className: fieldClassName,
           label: formatMessage(fieldName, fieldProps),
@@ -176,7 +176,7 @@ function createValidatorWithSchema (schema, { formatMessage = DEFAULT_FORMATTER 
   }
 }
 
-// TODO: This should be worked on depending on ElectricityBenchmarkForm.
+// TODO: This should be worked on depending on Form.
 //
 // 1. We must use an action to fetch a schema.
 // 2. We must grab the schema from a store.
@@ -192,7 +192,6 @@ export function schemaReduxForm (options) {
       throw new UnsupportedSchemaError(`Schema should be an object and follow ${JSON_SCHEMA_DRAFT_04}`)
     }
   }
-
 }
 
 // NOTE: It should be possible to have nested Field items in a redux-form.
@@ -203,4 +202,5 @@ export function schemaReduxForm (options) {
 // Where is reduxForm used?
 // Can they both be avoided or injected?
 
+export { createValidatorWithSchema }
 export default schemaReduxForm

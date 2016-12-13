@@ -5,8 +5,7 @@
 
 **What I need to do**
 
-- [ ] `JsonSchemaFields` should accept a `fields` and render these fields. It should instead be called `FieldsList`.
-- [ ] Write a working `createValidatorWithSchema` function.
+- [ ] `FieldsList` should accept a `fields` and render them.
 - [ ]  `schemaReduxForm` will:
       - [ ] Represent a very similar interface to `redux-form#reduxForm`. But:
           - [ ] Be able to accept an `options` containing a `schema`.
@@ -15,6 +14,7 @@
       - [ ] Use its `schema` to create a `validate` function via the `createValidatorWithSchema`.
       - [ ] The `schema` that can be received from `props` should come from the `store.forms[FORM_NAME].schema`, using something very like [`formValueSelector`](http://redux-form.com/6.0.5/docs/api/FormValueSelector.md/).
 - [ ] Make it not depend upon `Field` or `redux-form` if at all possible. Magic.
+- [ ] Write a working `createValidatorWithSchema` function.
 - [ ] Unit test individual functions.
 
 Must support this:

@@ -4,7 +4,7 @@ import TextField from 'material-ui/TextField'
 import SelectField from 'material-ui/SelectField'
 import MenuItem from 'material-ui/MenuItem'
 
-import errorText from 'shared/helpers/errorText'
+const errorText = v => v
 
 export function renderDecimalWithUnit ({
   input: {
@@ -22,7 +22,7 @@ export function renderDecimalWithUnit ({
         {...remainingInputProps}
         floatingLabelText={labelText}
         errorText={errorText(fieldProps)}
-        type="number"
+        type='number'
         min={0}
         step={0.01}
         fullWidth
